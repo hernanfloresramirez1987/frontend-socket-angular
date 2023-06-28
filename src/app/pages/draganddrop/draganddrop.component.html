@@ -1,0 +1,123 @@
+<app-header></app-header>
+<app-sidebar data-widget="pushmenu"></app-sidebar>
+<app-controlbar></app-controlbar>
+<section class="content-wrapper">
+    <app-content-header title="drag&drop" breadcrumbItem="Drag&Drop" breadcrumbItemActive="draganddrop"></app-content-header>
+    <div class="content">
+        <div class="container-fluid">
+            <p>draganddrop works!</p>
+            <div class="row" cdkDropList (cdkDropListDropped)="drop($event)">
+                <div class="col-lg-3 col-6" *ngFor="let item of cards" cdkDrag>
+                    <div class="small-box {{item.color}}">
+                        <div class="inner">
+                            <h3>{{item.valor}}</h3>
+                            <p>{{item.parrf}}</p>
+                        </div>
+                        <!--div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div-->
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div clas="row">
+                <div class="card">
+                    <div class="card-header ui-sortable-handle" style="cursor: move;">
+                        <h3 class="card-title">
+                            <i class="ion ion-clipboard mr-1"></i>
+                            Titulo
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row" cdkDropListGroup>
+                            <div class="col-lg-3">
+                                <div class="example-boundary">
+                                    <br>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default">
+                                            <i class="fas fa-align-left"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default">
+                                            <i class="fas fa-align-center"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default">
+                                            <i class="fas fa-align-right"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default">
+                                            <i class="fas fa-print"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default">
+                                            <i class="fas fa-bold"></i>
+                                        </button>
+                                        
+                                    </div><br>
+                                    input<br>
+                                    <input type="text" >
+                                    <br>
+                                    text area<br>
+                                    <textarea width="100%" [(ngModel)]="text">{{text}}</textarea>
+                                    <br>checkbox<br>
+                                    <input type="checkbox">
+                                    <br>radio<br>
+                                    <input type="radio">
+                                    <br>
+                                    <p>{{text}}</p>
+                                    <div class="editControls">
+                                        <div class='btn-group'>
+                                            <button type="button" class="btn" (click)="setStyle('bold')">
+                                          <b>B</b>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('italic')">
+                                          <em><b>I</b></em>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('underline')">
+                                          <u><b>U</b></u>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('strikeThrough')">
+                                          <s>abc</s>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('justifyLeft')">
+                                          <i class="fas fa-align-left"></i>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('justifyCenter')">
+                                                <i class="fas fa-align-center"></i>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('justifyRight')">
+                                                <i class="fas fa-align-right"></i>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('justifyFull')">
+                                          <i class='fas fa-align-justify'></i>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('indent')">
+                                          <i class='fa fa-indent'></i>
+                                        </button>
+                                            <button type="button" class="btn" (click)="setStyle('outdent')">
+                                          <i class='fa fa-indent'></i>
+                                        </button>
+                                        <button type="button" class="btn bg-gradient-primary" (click)="addTxt()">
+                                            <b>+</b>
+                                        </button>
+                                        </div>
+                                    </div>
+
+                                    <div #editor class="editor"  contenteditable></div>
+                                    {{text}}
+                                    <label *ngFor="let txt of text" cdkDrag>.{{txt | json}}.</label>
+
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-9">   
+                                <div class="example-boundary">
+                                    <div class="example-box" cdkDragBoundary=".example-boundary" cdkDrag>
+                                    I can only be dragged within the dotted container
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
